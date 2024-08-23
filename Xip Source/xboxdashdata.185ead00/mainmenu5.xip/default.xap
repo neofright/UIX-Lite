@@ -10,7 +10,7 @@ DEF theMainMenuLevel Transform
 				{
 					fade 0.25
 					children
-					[       
+					[
 						DEF Large_X_Spinner Spinner
 						{
 							rpm 0
@@ -193,7 +193,7 @@ DEF theMainMenuLevel Transform
 									translation 48.430000 94.709999 105.500000
 								}
 							]
-							
+
 						}
 					]
 					scale 0.925900 0.925900 0.925900
@@ -203,7 +203,7 @@ DEF theMainMenuLevel Transform
 				{
 					fade 0.25
 					children
-					[       
+					[
 						DEF Main_memory_ringpin_2 Transform
 						{
 							children
@@ -367,7 +367,7 @@ DEF theMainMenuLevel Transform
 																			]
 																		}
 																	]
-																	translation -31.009998 -4.135000 -10.430000 
+																	translation -31.009998 -4.135000 -10.430000
 																}
 																DEF game_podshell_07 Transform
 																{
@@ -417,12 +417,12 @@ DEF theMainMenuLevel Transform
 																	[
 																		Shape
 																		{
-																			appearance Appearance 
-																			{ 
-																				material MaxMaterial 
-																				{ 
-																					name "MenuCell" 
-																				} 
+																			appearance Appearance
+																			{
+																				material MaxMaterial
+																				{
+																					name "MenuCell"
+																				}
 																			}
 																			geometry DEF game_podshell_09-FACES Mesh { url "game_podshell_09-FACES.xm" }
 																		}
@@ -674,7 +674,7 @@ DEF theMainMenuLevel Transform
 																					}
 																					geometry DEF MainMenuButton1_Text Text { font "Heading" translate true text "MEMORY" }
 																				}
-																			]       
+																			]
 																		}
 																	]
 																	rotation -1.000000 0.002966 0.003888 -1.551000
@@ -721,7 +721,7 @@ DEF theMainMenuLevel Transform
 											scaleOrientation -0.447400 0.891900 0.066360 -0.156600
 											translation -0.311500 -0.785100 0.478100
 										}
-									]   
+									]
 								}
 							]
 							rotation 0.997500 -0.047920 0.052590 -1.573000
@@ -1201,7 +1201,7 @@ DEF theMainMenuLevel Transform
 																			]
 																		}
 																	]
-																	rotation -1.000000 0.002966 0.003888 -1.551000                                          
+																	rotation -1.000000 0.002966 0.003888 -1.551000
 																	scale 7.000 0.0 7.000
 																	//scaleOrientation -0.051400 -0.031340 0.998200 -0.538400
 																	translation -14.665000 -10.570000 3.916000
@@ -1254,16 +1254,16 @@ DEF theMainMenuLevel Transform
 							// Memory Position
 							// translation 62.779999 4.492000 102.000000    // - These numbers are for a 3 button menu
 							// translation 62.779999 13.892000 102.000000   // - These numbers are for a 4 button menu
-							
+
 						}
 						DEF Main_Online_ringpin Transform
 						{
-							children 
+							children
 							[
-								DEF theOnlineItem Transform 
-								{ 
-									fade 0.25 
-									children 
+								DEF theOnlineItem Transform
+								{
+									fade 0.25
+									children
 									[
 										Shape
 										{
@@ -1278,7 +1278,7 @@ DEF theMainMenuLevel Transform
 										}
 										DEF game_arm1 Transform
 										{
-											children 
+											children
 											[
 												Shape
 												{
@@ -1293,7 +1293,7 @@ DEF theMainMenuLevel Transform
 												}
 												DEF game_arm_2 Transform
 												{
-													children 
+													children
 													[
 														Shape
 														{
@@ -1308,7 +1308,7 @@ DEF theMainMenuLevel Transform
 														}
 														DEF music Transform
 														{
-															children 
+															children
 															[
 																DEF pod_rotate_structure3 Transform
 																{
@@ -1322,7 +1322,7 @@ DEF theMainMenuLevel Transform
 																			[
 																				DEF game_podsupport_1 Transform
 																				{
-																					children 
+																					children
 																					[
 																						Shape
 																						{
@@ -1340,7 +1340,7 @@ DEF theMainMenuLevel Transform
 																				}
 																				DEF game_podsupport_2 Transform
 																				{
-																					children 
+																					children
 																					[
 																						Shape
 																						{
@@ -1358,7 +1358,7 @@ DEF theMainMenuLevel Transform
 																				}
 																				DEF game_podsupport_3 Transform
 																				{
-																					children 
+																					children
 																					[
 																						Shape
 																						{
@@ -1376,7 +1376,7 @@ DEF theMainMenuLevel Transform
 																				}
 																				DEF game_podsupport_4 Transform
 																				{
-																					children 
+																					children
 																					[
 																						Shape
 																						{
@@ -1394,7 +1394,7 @@ DEF theMainMenuLevel Transform
 																				}
 																				DEF game_podsocket_inner Transform
 																				{
-																					children 
+																					children
 																					[
 																						Shape
 																						{
@@ -1420,7 +1420,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_podshell_1 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1441,7 +1441,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_podshell_2 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1462,7 +1462,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_podshell_3 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1483,7 +1483,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_nozzle01 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1498,7 +1498,7 @@ DEF theMainMenuLevel Transform
 																		}
 																		DEF game_nozzledial01 Transform
 																		{
-																			children 
+																			children
 																			[
 																				Shape
 																				{
@@ -1523,7 +1523,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_pod Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1547,7 +1547,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF gamepod_backing Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1572,7 +1572,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_arm02 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1593,7 +1593,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF games_tube Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1614,7 +1614,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF games_tube_0 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1635,7 +1635,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF music_panel_support Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1656,7 +1656,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF games_metapanel Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1681,7 +1681,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF game_select_pod_inner04 Transform
 																{
-																	children 
+																	children
 																	[
 																		Shape
 																		{
@@ -1705,7 +1705,7 @@ DEF theMainMenuLevel Transform
 																}
 																DEF music_text Transform
 																{
-																	children 
+																	children
 																	[
 																		Transform
 																		{
@@ -1726,7 +1726,7 @@ DEF theMainMenuLevel Transform
 																			]
 																		}
 																	]
-																	rotation -1.000000 0.002966 0.003888 -1.551000                                          
+																	rotation -1.000000 0.002966 0.003888 -1.551000
 																	scale 7.000 0.0 7.000
 																	//scaleOrientation -0.051400 -0.031340 0.998200 -0.538400
 																	translation -14.665000 -10.570000 3.916000
@@ -1739,7 +1739,7 @@ DEF theMainMenuLevel Transform
 														}
 														DEF game_arm_pin Transform
 														{
-															children 
+															children
 															[
 																Shape
 																{
@@ -1783,10 +1783,10 @@ DEF theMainMenuLevel Transform
 						{
 							children
 							[
-								DEF theLauncherItem Transform 
+								DEF theLauncherItem Transform
 								{
-									fade 0.25 
-									children 
+									fade 0.25
+									children
 									[
 										Shape
 										{
@@ -1871,7 +1871,7 @@ DEF theMainMenuLevel Transform
 																							{
 																								material USE podsupportMaterial
 																							}
-																							geometry USE game_podsupport_13-FACES 
+																							geometry USE game_podsupport_13-FACES
 																						}
 																					]
 																					rotation -0.689600 0.314600 -0.652200 -2.669000
@@ -2307,10 +2307,10 @@ DEF theMainMenuLevel Transform
 						{
 							children
 							[
-								DEF theSettingsItem Transform 
+								DEF theSettingsItem Transform
 								{
-									fade 0.25 
-									children 
+									fade 0.25
+									children
 									[
 										Shape
 										{
@@ -2395,7 +2395,7 @@ DEF theMainMenuLevel Transform
 																							{
 																								material USE podsupportMaterial
 																							}
-																							geometry USE game_podsupport_53-FACES 
+																							geometry USE game_podsupport_53-FACES
 																						}
 																					]
 																					rotation -0.689600 0.314600 -0.652200 -2.669000
@@ -2830,7 +2830,7 @@ DEF theMainMenuLevel Transform
 			scale 1.080000 1.080000 1.080000
 			translation -57.980000 -13.690000 -84.760002
 		}
-		
+
 		DEF select Transform
 		{
 			children
@@ -3000,7 +3000,7 @@ DEF theMainMenuLevel Transform
 									rotation 1 0 0 -1.571
 									scale 15 15 15
 									translation -1 0 0
-									children            
+									children
 									[
 										Shape
 										{
@@ -3024,7 +3024,7 @@ DEF theMainMenuLevel Transform
 			]
 			translation 162.000000 -217.500000 -36.470001
 		}
-		
+
 		DEF main_pod Transform
 		{
 			children
@@ -3120,7 +3120,7 @@ DEF theMainMenuLevel Transform
 			scale 1.130000 1.130000 1.130000
 			translation -61.689999 -13.400000 0.337400
 		}
-		
+
 		DEF main_poda Transform
 		{
 			children
@@ -3287,7 +3287,7 @@ DEF theMainMenuLevel Transform
 			scale 1.130000 1.130000 1.130000
 			translation -61.689999 -13.400000 0.337400
 		}
-		
+
 		DEF Main_pod_backing01 Transform // MS Orb
 		{
 			children
@@ -3299,7 +3299,7 @@ DEF theMainMenuLevel Transform
 						material MaxMaterial
 						{
 							name "MainMenuOrb"
-							
+
 						}
 						texture ImageTexture
 						{
@@ -3310,12 +3310,12 @@ DEF theMainMenuLevel Transform
 				}
 			]
 			rotation -0.993700 -0.088440 0.068970 -1.576000
-			scale 1.500000 1.500000 1.500000 
+			scale 1.500000 1.500000 1.500000
 			scaleOrientation 0.036530 0.975200 0.218400 -0.396500
 			translation -58.220001 -12.680000 29.980000
 		}
-		
-		DEF Main_pod_backing02 Transform // THC Orb 
+
+		DEF Main_pod_backing02 Transform // THC Orb
 		{
 			children
 			[
@@ -3416,7 +3416,7 @@ DEF theMainMenuLevel Transform
 				}
 			]
 			rotation -0.993700 -0.088440 0.068970 -1.576000
-			scale 43.000000 43.000000 43.000000 
+			scale 43.000000 43.000000 43.000000
 			scaleOrientation 0.036530 0.975200 0.218400 -0.396500
 			translation -58.220000 -12.100000 15.000000
 		}

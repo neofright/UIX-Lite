@@ -384,9 +384,9 @@ DEF theLiveTodayLevel Level
 					TellUser("MSG VOICE BANNED", "");
 					return;
 				}
-				
+
 				theLiveNowMenuIn.Play();
-				
+
 				if (theLiveAccounts.bLogon)
 					theLiveAccounts.PersistUser(g_nCurrentAccountSelected);
 
@@ -493,7 +493,7 @@ DEF theLiveTodayLevel Level
 				c.message_Text_01.children[0].children[0].geometry.text = str;
 				theLiveAccounts.ShowIcon(true);
 			}
-			
+
 			if ((fLogOnInProgress + fLogOnSuccess) == 0 )
 			{
 				LogOn();

@@ -819,12 +819,12 @@ DEF theDVDLevel Level
 				OperationProhibited();
 				return;
 			}
-			
+
 			if( theDVDPlayer.scanSpeed > 1 )    // Make sure we are playing at normal speed if the user wants to skip back
 			{
 				OperationProhibited();
 				return;
-			}            
+			}
 
 			if (theDVDPlayer.isUOPValid(1<<6)) // UOP_PREV_TOP_PG_SEARCH
 			{
@@ -945,7 +945,7 @@ DEF theDVDLevel Level
 				OperationProhibited();
 				return;
 			}
-			
+
 			if( theDVDPlayer.scanSpeed > 1 )    // Make sure we are playing at normal speed if the user wants to skip ahead
 			{
 				OperationProhibited();

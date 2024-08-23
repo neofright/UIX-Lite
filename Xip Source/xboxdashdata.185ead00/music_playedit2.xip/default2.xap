@@ -525,7 +525,7 @@ DEF theWholeThing Transform
 							rotation -0.357400 0.862900 -0.357400 -1.718000
 							scale 0.124700 0.124700 0.124700
 							scaleOrientation -0.977600 0.000000 -0.210300 -0.222200
-							translation 0.550000 0.320000 0.100006 
+							translation 0.550000 0.320000 0.100006
 						}
 						DEF MU_L3_podsupport_02 Transform
 						{
@@ -546,7 +546,7 @@ DEF theWholeThing Transform
 							rotation 0.678600 0.281100 0.678600 -2.594000
 							scale 0.124700 0.124700 0.124700
 							scaleOrientation 0.596000 -0.665700 0.449200 -0.988500
-							translation -0.549999 -0.330002 0.100006 
+							translation -0.549999 -0.330002 0.100006
 						}
 						DEF MU_L3_podsupport_03 Transform
 						{
@@ -567,7 +567,7 @@ DEF theWholeThing Transform
 							rotation 0.678600 -0.281100 0.678600 -3.690000
 							scale 0.124700 0.124700 0.124700
 							scaleOrientation 0.382000 0.885300 0.265200 -0.865600
-							translation -0.329998 0.539997 0.100006 
+							translation -0.329998 0.539997 0.100006
 						}
 						DEF MU_L3_podsupport_04 Transform
 						{
@@ -588,7 +588,7 @@ DEF theWholeThing Transform
 							rotation 0.357400 0.862900 0.357400 -1.718000
 							scale 0.124700 0.124700 0.124700
 							scaleOrientation -0.392900 0.731300 -0.557500 -1.021000
-							translation 0.330002 -0.549999 0.100006 
+							translation 0.330002 -0.549999 0.100006
 						}
 						DEF MU_L3_podsocket_inner Transform
 						{
@@ -628,7 +628,7 @@ DEF theWholeThing Transform
 							]
 							rotation -1.000000 0.000000 0.000000 -1.571000
 							scale 0.124700 0.124700 0.124700
-							translation 0.000000 0.000000 0.000000 
+							translation 0.000000 0.000000 0.000000
 						}
 					]
 				}
@@ -645,7 +645,7 @@ DEF theWholeThing Transform
 					axis 0 0 2
 					children
 					[
-						
+
 						DEF MU_L3_pod_shell_01 Transform
 						{
 							children
@@ -681,7 +681,7 @@ DEF theWholeThing Transform
 					axis 0 0 2
 					children
 					[
-						
+
 						DEF MU_L3_pod_shell_02 Transform
 						{
 							children
@@ -701,7 +701,7 @@ DEF theWholeThing Transform
 							rotation -0.410700 0.644700 0.644700 -2.362000
 							scale 0.124700 0.124700 0.124700
 							scaleOrientation -0.916500 -0.134100 -0.376900 -0.311000
-							translation 0.000000 0.000000 0.000000 
+							translation 0.000000 0.000000 0.000000
 						}
 					]
 				}
@@ -718,7 +718,7 @@ DEF theWholeThing Transform
 					axis 0 0 2
 					children
 					[
-						
+
 						DEF MU_L3_pod_shell_03 Transform
 						{
 							children
@@ -737,7 +737,7 @@ DEF theWholeThing Transform
 							]
 							rotation -1.000000 0.000000 0.000000 -1.571000
 							scale 0.124700 0.124700 0.124700
-							translation 0.000000 0.000000 0.000000 
+							translation 0.000000 0.000000 0.000000
 						}
 					]
 				}
@@ -796,10 +796,10 @@ DEF theWholeThing Transform
 					[
 						Shape
 						{
-							appearance Appearance 
-							{ 
-								material MaxMaterial { name "MainMenuOrb" } 
-								texture ImageTexture { url "xboxlogo.xbx" } 
+							appearance Appearance
+							{
+								material MaxMaterial { name "MainMenuOrb" }
+								texture ImageTexture { url "xboxlogo.xbx" }
 							}
 							geometry Mesh { url "MEM_L2_sc_pod_icon-FACES.xm" }
 						}
@@ -911,8 +911,8 @@ DEF theWholeThing Transform
 				}
 			]
 			rotation -0.993700 -0.088440 0.068970 -1.576000
-			scale 0.780000 0.780000 0.780000 
-			scaleOrientation 0.000000 0.000000 0.000000 0.000000 
+			scale 0.780000 0.780000 0.780000
+			scaleOrientation 0.000000 0.000000 0.000000 0.000000
 			translation -46.880001 55.130001 -205.000000
 		}
 		DEF GM_L2_Arm01_03 Transform
@@ -950,7 +950,7 @@ DEF theWholeThing Transform
 							fade 1.0
 							children
 							[
-								
+
 								DEF GM_L2_Arm01_05 Transform
 								{
 									children
@@ -970,7 +970,7 @@ DEF theWholeThing Transform
 										{
 											children
 											[
-												
+
 												DEF New_Line11 Transform
 												{
 													children
@@ -1092,14 +1092,14 @@ DEF theWholeThing Transform
 																	scaleOrientation 0.499300 0.000000 -0.866400 -0.133000
 																	translation 112.300003 -115.699997 408.700012
 																}
-																
+
 															]
 															translation -0.028750 -0.042740 -0.055150
 														}
 													]
 													translation -46.820000 54.369999 -204.100006
 												}
-												
+
 												DEF _button_surround Transform
 												{
 													children
@@ -1167,7 +1167,7 @@ DEF theWholeThing Transform
 															scaleOrientation 0.058750 0.989900 -0.128900 -0.416800
 															translation 110.500000 -116.500000 408.899994
 														}
-														
+
 													]
 													translation -46.820000 54.369999 -204.100006
 												}
@@ -1221,7 +1221,7 @@ DEF theWholeThing Transform
 													scaleOrientation -0.234100 0.848700 0.474200 -0.141400
 													translation 41.259998 -43.360001 193.800003
 												}
-												
+
 												DEF soundtrack_text06 Transform
 												{
 													children
@@ -1323,7 +1323,7 @@ DEF theWholeThing Transform
 													scaleOrientation -0.384300 -0.825000 -0.414200 -0.077220
 													translation 61.070000 -52.160000 205.699997
 												}
-												
+
 												DEF theMenuButtons Group
 												{
 													children
@@ -1344,7 +1344,7 @@ DEF theWholeThing Transform
 																	}
 																	geometry DEF MenuButtonMesh Mesh { url "GM_L2_menubutton_01-FACES.xm" }
 																}
-																
+
 																Transform
 																{
 																	translation -2.5 -0.1 -0.25
@@ -1399,7 +1399,7 @@ DEF theWholeThing Transform
 																	}
 																	geometry USE MenuButtonMesh
 																}
-																
+
 																Transform
 																{
 																	translation -2.5 -0.1 -0.25
@@ -1435,7 +1435,7 @@ DEF theWholeThing Transform
 																	}
 																	geometry USE MenuButtonMesh
 																}
-																
+
 																Transform
 																{
 																	translation -2.5 -0.1 -0.25
@@ -1471,7 +1471,7 @@ DEF theWholeThing Transform
 																	}
 																	geometry USE MenuButtonMesh
 																}
-																
+
 																Transform
 																{
 																	translation -2.5 -0.1 -0.25
@@ -1507,7 +1507,7 @@ DEF theWholeThing Transform
 																	}
 																	geometry USE MenuButtonMesh
 																}
-																
+
 																Transform
 																{
 																	translation -2.5 -0.1 -0.25
@@ -1756,7 +1756,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName1 Text { font "Body" width -14.5 translate false text "1." }
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 0.556 0.119100
@@ -1770,7 +1770,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName2 Text { font "Body" width -14.5 translate false text"2."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							//translation -0.38 0.442 0.1
@@ -1785,7 +1785,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName3 Text { font "Body" width -14.5 translate false text "3."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 0.254 0.119300
@@ -1799,7 +1799,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName4 Text { font "Body" width -14.5 translate false text "4."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 0.098 0.119400
@@ -1813,7 +1813,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName5 Text { font "Body" width -14.5 translate false text "5."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 -0.057 0.119500
@@ -1827,7 +1827,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName6 Text { font "Body" width -14.5 translate false text "6."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 -0.210 0.119600
@@ -1841,7 +1841,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName7 Text { font "Body" width -14.5 translate false text "7."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation -0.37 -0.364 0.119700
@@ -1855,7 +1855,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName8 Text { font "Body" width -14.5 translate false text "8."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							//translation -0.38 -0.482 0.1
@@ -1870,7 +1870,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackName9 Text { font "Body" width -14.5 translate false text "9."}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							//translation -0.38 -0.58 0.1
@@ -1892,7 +1892,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum1 Text { font "Body" width 3 translate false text "1." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 0.559100 0.119000
@@ -1906,7 +1906,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum2 Text { font "Body" width 3 translate false text"2." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 0.401 0.119200
@@ -1920,7 +1920,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum3 Text { font "Body" width 3 translate false text "3." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 0.244 0.119300
@@ -1934,7 +1934,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum4 Text { font "Body" width 3 translate false text "4." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 0.091 0.119400
@@ -1948,7 +1948,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum5 Text { font "Body" width 3 translate false text "5." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 -0.062 0.119500
@@ -1962,7 +1962,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum6 Text { font "Body" width 3 translate false text "6." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 -0.212 0.119600
@@ -1976,7 +1976,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum7 Text { font "Body" width 3 translate false text "7." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 -0.369 0.119700
@@ -1990,7 +1990,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum8 Text { font "Body" width 3 translate false text "8." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 -0.527 0.119800
@@ -2004,7 +2004,7 @@ DEF theWholeThing Transform
 									appearance MaxMaterial { name "CellEgg/Partsz" }
 									geometry DEF TrackNum9 Text { font "Body" width 3 translate false text "9." justify "end"}
 								}
-								
+
 							]
 							scale 0.13 0.13 0.13
 							translation 1.48 -0.689 0.119900
@@ -2134,7 +2134,7 @@ DEF theWholeThing Transform
 							geometry DEF SubMenuHeaderText Text { font "heading" }
 						}
 					]
-					scale 0.134000 0.134000 0.134000 
+					scale 0.134000 0.134000 0.134000
 					//translation 0.229200 0.900200 0.009549
 					translation -0.386200 0.900200 0.009549
 				}
@@ -2217,7 +2217,7 @@ DEF theWholeThing Transform
 							geometry DEF LowerPanelText Text { font "heading" justify "end" }
 						}
 					]
-					scale 0.224700 0.224700 0.224700 
+					scale 0.224700 0.224700 0.224700
 					translation 1.840000 -0.994300 0.050710
 					//translation 0.426600 -0.854300 0.050710
 				}

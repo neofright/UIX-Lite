@@ -96,11 +96,11 @@ function InitMemoryMenuItems()
 		// We are on the Title / Soundtrack / Live Accounts menu
 		// We will default to only 1 item on the menu, and update it necessary
 		//
-		
+
 		c.MenuItemText1.text = theTranslator.Translate("DELETE");
 		nFileMenuItemCount = 1;
-		
-		
+
+
 		if (8 == theMemoryMonitor.curDevUnit)
 		{
 			//
@@ -114,7 +114,7 @@ function InitMemoryMenuItems()
 					//
 					// If the $k drive exists, we should add the second option
 					//
-					
+
 					c.MenuItemText1.text = theTranslator.Translate("DELETE");
 					c.MenuItemText2.text = theTranslator.Translate("USER CONTENT BUTTON");
 					nFileMenuItemCount = 2;
@@ -491,7 +491,7 @@ function DoMemoryItemMenuCommand()
 			//
 			// This is the item to delete the entire title
 			//
-			
+
 			StartDelete();
 		}
 		else if (1 == nCurFileMenuItem)
@@ -499,7 +499,7 @@ function DoMemoryItemMenuCommand()
 			//
 			// This is the item to delete the User Shared Content
 			//
-			
+
 			c.theSavedGameGrid.deleteUserContent = true;
 			StartDelete();
 		}
@@ -557,7 +557,7 @@ function StartDelete()
 				//
 				// The user wants to delete the entire title and all of it's associate files
 				//
-				
+
 				msg = "ConfirmDeleteTitle";
 			}
 			else
@@ -565,7 +565,7 @@ function StartDelete()
 				//
 				// The user wants to delete the User Shared Content associated with this title
 				//
-				
+
 				msg = "ConfirmDeleteUserContent";
 			}
 		}
@@ -1672,8 +1672,8 @@ DEF theMemoryMenu Level
 			if (bBackToLauncher)
 			{
 				theLauncherLevel.GoTo();
-			} 
-			else 
+			}
+			else
 			{
 				if(bBackToSettings)
 				{

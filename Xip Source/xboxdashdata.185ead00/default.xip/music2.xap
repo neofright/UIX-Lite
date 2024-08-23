@@ -68,7 +68,7 @@ function AdjustCopyDestScroll()
 function UpdateCopyDestMenuText()
 {
 	var c = theMusicCopyMenu.children[0].children[0];
-	
+
 	c.SOUND1_icon_scroll_up.visible = false;
 	c.SOUND1_icon_scroll_down.visible = false;
 
@@ -725,13 +725,13 @@ function UpdateCopyPlayerMenu()
 			// catch pause icon
 			if(i == 0)
 				c.MU_L3_copy_icon_pause.children[0].children[0].appearance.name = "Material #133";
-				
+
 		}
 		else
 		{
 			c.buttons_copy.children[i * 2].children[0].appearance.material.name = "FlatSurfaces";
 			c.buttons_copy.children[i * 2 + 1].children[0].children[0].appearance.name = "NavType";
-			
+
 			// catch pause icon
 			if(i == 0)
 				c.MU_L3_copy_icon_pause.children[0].children[0].appearance.name = "NavType";
@@ -1221,7 +1221,7 @@ function ShowMusicMenu()
 	var c = theMusicPlayMenu.children[0].children[0];
 
 	UpdateMusicMenuIcon();
-	
+
 	//turn off the visualizer
 	c.MU_L3_text_tracklist01.visible = false;
 	c.CD_STACK.SetAlpha(1);
@@ -1233,9 +1233,9 @@ function ShowMusicMenu()
 
 	// move A & B from music player
 	var c = theMusicPlayMenu.children[0].children[0];
-	c.back1.SetTranslation(-48.990000, 52.450001, -205.000000); 
+	c.back1.SetTranslation(-48.990000, 52.450001, -205.000000);
 	c.back1.SetRotation(0.000000, 1.000000, 0.000000, -0.130900);
-	c.select1.SetTranslation(-45.280000, 52.339999, -204.000000);   
+	c.select1.SetTranslation(-45.280000, 52.339999, -204.000000);
 	c.select1.SetRotation(0.000000, 1.000000, 0.000000, -0.497400);
 
 	UpdateMusicMenu();
@@ -1257,9 +1257,9 @@ function StartMusicPlayer()
 
 	// move A & B to music player
 	var c = theMusicPlayMenu.children[0].children[0];
-	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003); 
+	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003);
 	c.back1.SetRotation(0.000000, -1.000000, 0.000000, -0.340300);
-	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);   
+	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);
 	c.select1.SetRotation(-0.014820, 0.970100, -0.242300, -0.143900);
 
 	c.theMenuArm.SetRotation(0, 1, 0, 2);
@@ -1308,9 +1308,9 @@ function StartMusicCopier()
 
 	// move A & B to music player
 	var c = theMusicPlayMenu.children[0].children[0];
-	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003); 
+	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003);
 	c.back1.SetRotation(0.000000, -1.000000, 0.000000, -0.340300);
-	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);   
+	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);
 	c.select1.SetRotation(-0.014820, 0.970100, -0.242300, -0.143900);
 
 	c.theMenuArm.SetRotation(0, 1, 0, 2);
@@ -1352,9 +1352,9 @@ function StartMusicEditor()
 
 	// move A & B to music player
 	var c = theMusicPlayMenu.children[0].children[0];
-	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003); 
+	c.back1.SetTranslation(-47.340000, 52.809999, -204.300003);
 	c.back1.SetRotation(0.000000, -1.000000, 0.000000, -0.340300);
-	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);   
+	c.select1.SetTranslation(-43.539999, 52.740002, -204.800003);
 	c.select1.SetRotation(-0.014820, 0.970100, -0.242300, -0.143900);
 
 	c.theMenuArm.SetRotation(0, 1, 0, 2);
@@ -2250,7 +2250,7 @@ function FillMusicList()
 
 	UpdateMusicList();
 }
-					
+
 function UpdateMusicMetaData()
 {
 	var c = theMusicMenu.children[0].children[0];
@@ -2273,9 +2273,9 @@ function UpdateMusicMetaData()
 			str = str + theTranslator.Translate("TRACK") + "\r";
 		else
 			str = str + theTranslator.Translate("TRACKS") + "\r";
-			
+
 		c.TrackNum.text = str;
-		
+
 		c.TimeNum.text = theTranslator.Translate("timel") + ": " + theMusicCollection.FormatSoundtrackTime(nSoundtrack);
 	}
 	else
@@ -2289,9 +2289,9 @@ function UpdateMusicMetaData()
 			str = str + theTranslator.Translate("TRACK") + "\r";
 		else
 			str = str + theTranslator.Translate("TRACKS") + "\r";
-		
+
 		c.TrackNum.text = str;
-		
+
 		if(theDiscDrive.FormatTotalTime() == "")
 			str = theTranslator.Translate("timel") + ": 00:00";
 		else
@@ -2325,7 +2325,7 @@ function UpdateMusicList()
 
 			c.MenuButtons.children[i].children[1].children[0].geometry.text = str;
 			c.MenuButtons.children[i].visible = true;
-			
+
 			if (i == musicButton)
 			{
 				//hilite the scroll arrows

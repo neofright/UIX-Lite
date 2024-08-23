@@ -86,7 +86,7 @@ function ProcessDiscOnForceSettings()
 	{
 		// Unlock the drive so that discs will be processed
 		theDiscDrive.locked = false;
-	
+
 		// Allow memory units to be inserted
 		UnblockMemoryUnitInsert();
 
@@ -865,7 +865,7 @@ DEF theSetClockMenu Level
 			StartClockSettings();
 		}
 	}
-	
+
 	function OnArrival()
 	{
 		if( false == bAcceptedLegalInfo )
@@ -1196,7 +1196,7 @@ DEF theSetTimezoneMenu Level
 			StartTimezoneMenu();
 		}
 	}
-	
+
 	function OnArrival()
 	{
 		if( false == bAcceptedLegalInfo )
@@ -1204,7 +1204,7 @@ DEF theSetTimezoneMenu Level
 			//
 			// We need to pop up the dialog displaying the legal information to the user
 			//
-			
+
 			DisplayOOBLegalInfo();
 		}
 	}
@@ -1215,7 +1215,7 @@ function DisplayOOBLegalInfo()
 	g_bLeaveDriveLocked = true;
 	g_bLeaveMemoryUnitsBlocked = true;
 
-	TellUser( theTranslator.Translate("LEGAL MESSAGE 1"), "UserAcceptedLegalInfo()" );        
+	TellUser( theTranslator.Translate("LEGAL MESSAGE 1"), "UserAcceptedLegalInfo()" );
 }
 
 // Choose Clock Menu //////////////////////////////////////////////////////////////////////////
@@ -2846,7 +2846,7 @@ function InitializeLanguageMenu()
 	nLanguageItemScroll = 0;
 	nCurLanguageButton = 0;
 
-	nStartLanguageMenuItem = 0; 
+	nStartLanguageMenuItem = 0;
 	nTempLanguageButton = 0;
 	nTempLanguageItemScroll = 0;
 
@@ -2861,7 +2861,7 @@ function InitializeLanguageMenu()
 										"PORTUGUÊS" );                  // Portuguese
 }
 
-function StartLanguageMenu() 
+function StartLanguageMenu()
 {
 	var c = theSetLanguageMenu.children[0].children[0];
 
@@ -2950,7 +2950,7 @@ DEF theSetLanguageMenu Level
 			SetLanguage(nCurLanguageMenuItem + 1);
 			GetMainMenuButtons();
 			SetButtonText();
-			
+
 			if (nCurLanguageMenuItem == 0)      // English
 				b24hour = false;
 			else if (nCurLanguageMenuItem == 1) // Japanese
@@ -3469,13 +3469,13 @@ function StartSettingsMenu()
 		sSettingsMenu[index] = Translate("Memory");
 		index = index + 1;
 	}
-	
+
 	if(ShowMusicInSettings)
 	{
 		sSettingsMenu[index] = Translate("Music");
 		index = index + 1;
-	}    
-	
+	}
+
 	if(ShowXOnlineInSettings)
 	{
 		if(GetSavedBooleanValue("default","ShowInsignia"))
@@ -3487,25 +3487,25 @@ function StartSettingsMenu()
 			sSettingsMenu[index] = Translate("XONLINE");
 		}
 		index = index + 1;
-	} 
-	
+	}
+
 	if(ShowLauncherInSettings)
 	{
 		sSettingsMenu[index] = Translate("Launcher");
 		index = index + 1;
 	}
-	
+
 	if(ShowConfigInSettings)
 	{
 		sSettingsMenu[index] = Translate("Configuration");
 		index = index + 1;
 	}
-	
+
 	sSettingsMenu[index] = theTranslator.Translate("CLOCK");
 	index = index + 1;
 	sSettingsMenu[index] = theTranslator.Translate("LANGUAGE");
 	index = index + 1;
-	
+
 	// Audio Setting
 	if(theConfig.GetAVPackType() != "RFU")
 	{
@@ -3531,19 +3531,19 @@ function StartSettingsMenu()
 	}
 	sSettingsMenu[index] = theTranslator.Translate("AUTO OFF");
 	index = index + 1;
-	
+
 	if(ShowRebootInSettings)
 	{
 		sSettingsMenu[index] = Translate("Reboot");
 		index = index + 1;
 	}
-	
+
 	if(ShowShutdownInSettings)
 	{
 		sSettingsMenu[index] = Translate("Shutdown");
 		index = index + 1;
 	}
-	
+
 	sSettingsMenu[index] = theTranslator.Translate("SYSTEM INFO");
 	index = index + 1;
 	nSettingsItemCount = index;
@@ -3606,25 +3606,25 @@ function MenuIcon()
 {
 	var c = theSettingsMenu.children[0].children[0];
 
-	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Memory")) 
-	{ 
-		ShowIcon(c.ConsoleIcon); 
+	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Memory"))
+	{
+		ShowIcon(c.ConsoleIcon);
 	}
-	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Music")) 
-	{ 
-		SetAudioModeIcon(nCurAudioMode); 
+	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Music"))
+	{
+		SetAudioModeIcon(nCurAudioMode);
 	}
-	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Insignia")) 
-	{ 
-		ShowIcon(c.Icon_live); 
+	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Insignia"))
+	{
+		ShowIcon(c.Icon_live);
 	}
-	if (sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE")) 
-	{ 
-		ShowIcon(c.Icon_live); 
+	if (sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE"))
+	{
+		ShowIcon(c.Icon_live);
 	}
-	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Launcher")) 
-	{ 
-		ShowIcon(c.ConsoleIcon); 
+	if (sSettingsElements[nCurSettingsMenuItem] == Translate("Launcher"))
+	{
+		ShowIcon(c.ConsoleIcon);
 	}
 	else if (sSettingsElements[nCurSettingsMenuItem] == Translate("Configuration"))
 	{
@@ -3681,26 +3681,26 @@ function UpdateRootMeta()
 {
 	var c = theSettingsMenu.children[0].children[0];
 	var metaString = "";
-	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Memory")) 
-	{ 
-		metaString = Translate("Manage Saved Games"); 
+	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Memory"))
+	{
+		metaString = Translate("Manage Saved Games");
 	}
-	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Music")) 
-	{ 
-		metaString = Translate("Play Your Music"); 
+	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Music"))
+	{
+		metaString = Translate("Play Your Music");
 	}
-	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Insignia") | 
-	   sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE")) 
-	{ 
-		metaString = Translate("Play Online"); 
+	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Insignia") |
+	   sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE"))
+	{
+		metaString = Translate("Play Online");
 	}
-	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Launcher")) 
-	{ 
-		metaString = Translate("Launch a Title"); 
+	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Launcher"))
+	{
+		metaString = Translate("Launch a Title");
 	}
-	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Configuration")) 
-	{ 
-		metaString = Translate("Configure UIX Settings"); 
+	if(sSettingsElements[nCurSettingsMenuItem] == Translate("Configuration"))
+	{
+		metaString = Translate("Configure UIX Settings");
 	}
 	else if(sSettingsElements[nCurSettingsMenuItem] == theTranslator.Translate("CLOCK"))
 	{
@@ -3728,7 +3728,7 @@ function UpdateRootMeta()
 		else if (nLanguage == 9)
 			metaString = "PORTUGUÊS";                   // Portugues
 		else
-			metaString = ""; 
+			metaString = "";
 	}
 	else if(sSettingsElements[nCurSettingsMenuItem] == theTranslator.Translate("AUDIO"))
 	{
@@ -3976,20 +3976,20 @@ DEF theSettingsMenu Level
 				strCurMenu      = "MEMORY";
 				bBackToSettings = true;
 				GoToMemory();
-			}              
+			}
 			if (sSettingsElements[nCurSettingsMenuItem] == Translate("Music"))
 			{
 				strCurMenu      = "MUSIC";
 				bBackToSettings = true;
 				GoToMusic();
 			}
-			if (sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE") | 
+			if (sSettingsElements[nCurSettingsMenuItem] == Translate("XONLINE") |
 			sSettingsElements[nCurSettingsMenuItem] == Translate("Insignia"))
 			{
 				strCurMenu      = "XONLINE";
 				bBackToSettings = true;
 				EnterLiveToday(false);
-			}             
+			}
 			if (sSettingsElements[nCurSettingsMenuItem] == Translate("Launcher"))
 			{
 				strCurMenu = "LAUNCHER";
@@ -4106,9 +4106,9 @@ DEF theSettingsMenu Level
 				theSettingsMenuOut.Play();
 			}
 		}
-		
-		function OnMoveLeft()  
-		{  
+
+		function OnMoveLeft()
+		{
 			if (nCurSettingsMenuItem - nNumSettingsMenuItems >= 0)
 			{
 				nCurSettingsMenuItem = nCurSettingsMenuItem - nNumSettingsMenuItems;
@@ -4118,8 +4118,8 @@ DEF theSettingsMenu Level
 			else if(nCurSettingsMenuItem == 0)
 			{
 				return;
-			} 
-			else 
+			}
+			else
 			{
 				nCurSettingsMenuItem = 0;
 				nSettingsScroll = 0;
@@ -4128,9 +4128,9 @@ DEF theSettingsMenu Level
 			PlaySoundMenuChange();
 			UpdateSettingsMenu();
 		}
-		
-		function OnMoveRight()  
-		{ 
+
+		function OnMoveRight()
+		{
 			var a = (nSettingsItemCount - 1);
 			if (nCurSettingsMenuItem + nNumSettingsMenuItems <= a)
 			{
@@ -4140,8 +4140,8 @@ DEF theSettingsMenu Level
 			else if(nCurSettingsMenuItem == a)
 			{
 				return;
-			} 
-			else 
+			}
+			else
 			{
 				nCurSettingsMenuItem = a;
 				if(nSettingsScroll + nNumSettingsMenuItems <= a) { nSettingsScroll = nSettingsScroll + nNumSettingsMenuItems; }
@@ -4150,7 +4150,7 @@ DEF theSettingsMenu Level
 			PlaySoundMenuChange();
 			UpdateSettingsMenu();
 		}
-		
+
 		function OnMoveUp()
 		{
 			PlaySoundMenuChange();
