@@ -210,7 +210,8 @@ DEF theAccountPasscodeVerifier Level
 			if (nCurrentLiveTodayMenu <= -2)
 				GoBackToAccountSelection();
 			else if (nCurrentLiveTodayMenu == -1)
-				theMainMenu.GoBackTo();
+				if (bUseBSXMenu) { GoToBSX(); }
+				else { theMainMenu.GoBackTo(); }
 			else
 				theLiveTodayLevel.GoBackTo();
 		}
@@ -409,7 +410,8 @@ DEF theLiveTodayLevel Level
 				theLiveNowMenuIn.Play();
 				LogOff();
 				theGamesMenuOut.Play();
-				theMainMenu.GoBackTo();
+				if (bUseBSXMenu) { GoToBSX(); }
+				else { theMainMenu.GoBackTo(); }
 				theLiveAccounts.ClearMOTDCache();
 				nCurrentLiveTodayMenu = -1;
 			}

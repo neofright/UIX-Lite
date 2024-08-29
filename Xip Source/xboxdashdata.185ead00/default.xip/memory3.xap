@@ -1682,7 +1682,8 @@ DEF theMemoryMenu Level
 				else
 				{
 					theGamesMenuOut.Play();
-					theMainMenu.GoBackTo();
+					if (bUseBSXMenu) { GoToBSX(); }
+					else { theMainMenu.GoBackTo(); }
 				}
 			}
 		}

@@ -4094,7 +4094,8 @@ DEF theSettingsMenu Level
 			{
 				strCurMenu = "SETTINGS";
 				strPrevMenu = "SETTINGS";
-				theMainMenu.GoBackTo();
+				if (bUseBSXMenu) { GoToBSX(); }
+				else { theMainMenu.GoBackTo(); }
 				theSettingsMenuOut.Play();
 			}
 		}

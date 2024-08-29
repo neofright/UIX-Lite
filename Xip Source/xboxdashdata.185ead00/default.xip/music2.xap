@@ -2490,7 +2490,8 @@ DEF theMusicMenu Level
 				}
 				else
 				{
-					theMainMenu.GoBackTo();
+					if (bUseBSXMenu) { GoToBSX(); }
+					else { theMainMenu.GoBackTo(); }
 					theMusicMenuOut.Play();
 				}
 			}

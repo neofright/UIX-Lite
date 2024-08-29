@@ -285,9 +285,13 @@ DEF theAccountSelectionLevel Level
 			}
 			else
 			{
-				nCurMainMenuItem = nXOLineButton;
 				theGamesMenuOut.Play();
-				theMainMenu.GoBackTo();
+				if (bUseBSXMenu) { GoToBSX(); }
+				else
+				{
+					nCurMainMenuItem = nXOLineButton;
+					theMainMenu.GoBackTo();
+				}
 			}
 		}
 

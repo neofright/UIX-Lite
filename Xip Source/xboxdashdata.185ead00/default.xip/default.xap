@@ -198,19 +198,15 @@ DEF theScreenSaver ScreenSaver
 	function OnStart()
 	{
 		theScreen.brightness = 0.1;
-		if(thcorb | btHcScreenSaver)
-		{
-			StartScreenSaverView();
-		}
+		if (bUseBSXMenu) { theBSXInline.children[0].EnterTestScreensaver(); }
+		else { if(thcorb | btHcScreenSaver) { StartScreenSaverView(); } }
 	}
 
 	function OnEnd()
 	{
 		theScreen.brightness = 1;
-		if(thcorb | btHcScreenSaver)
-		{
-			StopScreenSaverView();
-		}
+		if (bUseBSXMenu){ theBSXInline.children[0].ExitTestScreensaver(); }
+		else { if(thcorb | btHcScreenSaver) { StopScreenSaverView(); } }
 	}
 }
 
@@ -419,7 +415,7 @@ function Translate(text)
 	var MatchWord = text.toUpperCase();
 	if(theConfig.NtFileExists("\\Device\\Harddisk0\\Partition2\\UIX Configs\\xlate.ini"))
 	{
-		var Languages = new Array( "ENGLISH","JAPANESE","DEUTSCH","FRANÇAIS","ESPAÑOL","ITALIANO","KOREAN","CHINESE","PORTUGUÊS");
+		var Languages = new Array( "ENGLISH","JAPANESE","DEUTSCH","FRANï¿½AIS","ESPAï¿½OL","ITALIANO","KOREAN","CHINESE","PORTUGUï¿½S");
 		var index = Math.max(0,theConfig.GetLanguage() - 1);
 		XlateFile.section = Languages[index];
 		var xlate = XlateFile.GetValue(MatchWord);
@@ -605,6 +601,19 @@ function GoToSettings()
 }
 
 ////////////////////////////////////////////////////////////////////////////
+
+DEF theBSXInline Inline
+{
+	visible false
+	url "blackstormx.xap"
+	function onLoad() { theBSXInline.children[0].theBSXMenu.GoTo(); }
+}
+
+function GoToBSX()
+{
+	if( theBSXInline.visible ) { theBSXInline.children[0].theBSXMenu.GoTo(); }
+	else { theBSXInline.visible = true; }
+}
 
 DEF theUIXConfigInline Inline
 {
@@ -1761,6 +1770,8 @@ DEF theMainMenu Level
 		function OnYDown()
 		{
 			if ((RightTrigger == true) & (LeftTrigger == true)) { QuickLaunch("Y"); return;}
+			bUseBSXMenu = true;
+			GoToBSX();
 		}
 		function OnRightDown() { RightTrigger = true; }
 		function OnRightUp() { RightTrigger = false; }
@@ -2020,6 +2031,8 @@ var sBuildDate;
 
 var CurrentGameBoardAltViewpoint;
 
+var bUseBSXMenu;
+
 function initialize()
 {
 	sBuildDate = "240821"; //Date of commit YYMMDD
@@ -2084,6 +2097,8 @@ function initialize()
 	ShowInsignia = GetSavedBooleanValue("default","ShowInsignia");
 	btHcScreenSaver = GetSavedBooleanValue("default","UsetHcScreenSaver");
 	bUseMainMenuAttract = GetSavedBooleanValue("default","UseMainMenuAttract");
+	if(GetSavedValue("default","DashStyle") == "BSX") bUseBSXMenu = true; else bUseBSXMenu = false;
+
 	if(bUseMainMenuAttract) nTime = 3.1; else nTime = 1.4;
 
 	DriveLocations = new Array("Y:\\","C:\\");
@@ -3287,6 +3302,10 @@ DEF theLaunchGameLevel Level
 		DisableAmbientAudio();
 		BlockMemoryUnitEnumeration();
 		ClosePopup();
+
+		theBGMeshInline.children[0].theDNA1.SetAlpha(0);
+		theBGMeshInline.children[0].theDNA3.SetAlpha(0);
+		theBGMeshInline.children[0].theDNA5.SetAlpha(0);
 
 		g_bAboutToLaunchGame = true;
 		// Bind the proper background image
