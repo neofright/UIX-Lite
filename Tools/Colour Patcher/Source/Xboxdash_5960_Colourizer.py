@@ -738,7 +738,7 @@ password=xbox'''
 	ftp_password = settings.get('password', 'xbox')
 
 	# Check for xbe files
-	if not os.path.dir('xbe file'):
+	if not os.path.isdir('xbe file'):
 		os.makedirs('xbe file')
 	xboxdash = os.path.join('xbe file','xboxdash.xbe')
 	xb0xdash = os.path.join('xbe file','xb0xdash.xbe')
