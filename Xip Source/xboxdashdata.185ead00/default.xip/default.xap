@@ -3260,7 +3260,9 @@ function FillMenuList(x) // search Y:\, C:\, N:\ and O:\ for a relative path's c
 			{
 				for(var cLoop = 0; cLoop < cSize; cLoop = cLoop + 1)
 				{
-					TitleList[TitleList.length] = c.subFolders[cLoop].name;
+					launchPath = PartitionLocations[i] + RelativePath[ix] + "\\" + c.subFolders[cLoop].name;
+					launchXbe = "default.xbe";
+					if(theConfig.NtFileExists(launchPath + "\\" + launchXbe)) { TitleList[TitleList.length] = c.subFolders[cLoop].name; }
 				}
 			}
 		}
