@@ -489,6 +489,35 @@ DEF theBGMesh Layer
     ]
 }
 
+DEF theInfoPanel Layer
+{
+	visible true
+	viewpoint Viewpoint
+	{
+		fieldOfView 1.2
+		position 000000 -30.299999 120.300003
+	}
+
+	children
+	[
+		DEF theInfoPanelTransform Transform
+		{
+			children
+			[
+				DEF theInfoPanelInline Inline
+				{
+					preload true
+					url "info_panel/default.xap"
+					function onLoad()
+					{
+
+					}
+				}
+			]
+		}
+	]
+}
+
 DEF theSkinInline Inline
 {
 	visible false
@@ -1728,6 +1757,7 @@ DEF theMainMenu Level
 		function OnADown()
 		{
 			theMainMenu.children[0].children[0].select_pod_HL.children[0].appearance.material.param = 1;
+			HideInfoPanel();
 
 			PlaySoundA();
 			if ((RightTrigger == true) & (LeftTrigger == true)) { QuickLaunch("A"); return;}
@@ -1923,6 +1953,7 @@ DEF theMainMenu Level
 		if( g_theMainMenuLoaded )
 		{
 			UpdateMainMenu();
+			ShowInfoPanel();
 		}
 	}
 
@@ -2032,6 +2063,8 @@ var CurrentGameBoardAltViewpoint;
 
 var bUseBSXMenu;
 
+var answeredNo;
+
 function initialize()
 {
 	sBuildDate = "240821"; //Date of commit YYMMDD
@@ -2097,6 +2130,7 @@ function initialize()
 	btHcScreenSaver = GetSavedBooleanValue("default","UsetHcScreenSaver");
 	bUseMainMenuAttract = GetSavedBooleanValue("default","UseMainMenuAttract");
 	if(GetSavedValue("default","DashStyle") == "BSX") bUseBSXMenu = true; else bUseBSXMenu = false;
+	if(GetSavedBooleanValue("default","InfoPanel") != true) { theInfoPanel.visible = false; }
 
 	if(bUseMainMenuAttract) nTime = 3.1; else nTime = 1.4;
 
@@ -3731,3 +3765,208 @@ function LoadBGMeshValues()
 	c.DNAString5_Mesh.url = dnaBackingMesh;
 }
 ////////////////////////////////////////////////////////DNA END////////////////////////////////////////////////////////
+
+/////////////////////////BEGIN INFO PANEL FUNCTIONS ////////////////////////////////
+function HideInfoPanel()
+{
+	var c = theInfoPanelInline.children[0];
+	if(bUseBSXMenu) { c.Information_panel.SetTranslation(-235,-100,-45); }
+	else { c.Information_panel.SetTranslation(-250,-110,5); }
+}
+
+function ShowInfoPanel()
+{
+	var c = theInfoPanelInline.children[0];
+	if(bUseBSXMenu) { c.Information_panel.SetTranslation(-250,-110,5); }
+	else { c.Information_panel.SetTranslation(-90,-100,-45); }
+}
+
+// DEF theDVDPanelJoy Joystick
+// {
+// 	function OnADown()
+// 	{
+// 		answeredNo = true;
+// 		if(theDiscDrive.discType == "Video") { theDiscDrive.LaunchDisc(); }
+// 		else if(theDiscDrive.discType == "Audio")
+// 		{
+// 			//theMainMenu.children[0].children[0].DVDStatusIconTexture.url = "A:\\xips\\shared_files\\dvdempty.xbx";
+// 			RestoreDVDPanel(); //UpdateDVDIconStatus();
+// 			//MusicPlayerStop();
+// 			DisableAmbientAudio();
+// 			if (theMusicInline.visible == false)
+// 			{
+// 				ClosePopup();
+// 				nCurMainMenuItem = 1;   // select music when backing up
+// 				StartCDPlayer();
+// 				return;
+// 			}
+// 			var c = theMusicInline.children[0];
+// 			if (c.theMusicPlayMenu.visible) // We are in the music play menu
+// 			{
+// 				if (c.musicSelect == 0) // Already in audio CD player
+// 				{
+// 					if (c.bMusicMenuVisible)
+// 					{
+// 						c.theMusicPlayMenu.GoTo();
+// 						c.StartMusicPlayer();
+// 						c.DoMusicPlayPause();
+// 					}
+// 					else
+// 					{
+// 						c.DoMusicStop();
+// 						c.InitPlaylist();
+// 						c.UpdateTrackList();
+// 						if (c.visualizerViewpoint.isBound)
+// 							c.DoMusicPlayPause();
+// 					}
+// 				}
+// 				else if (c.theMusicPlayer.transportMode != 1) // Let's play the disc if no soundtrack is playing
+// 				{
+// 					bGoToCDPlayer = true;
+// 					EnableInput(false);
+// 					c.theMusicMenu.GoBackTo();
+// 				}
+// 			}
+// 			else if (c.theMusicMenu.visible == true)
+// 			{
+// 				ClosePopup();
+// 				bGoToCDPlayer = true;
+// 				EnableInput(false);
+// 				c.StartMusicLevel();
+// 			}
+// 			else
+// 			{
+// 				ClosePopup();
+// 				bGoToCDPlayer = true;
+// 				EnableInput(false);
+// 				c.theMusicMenu.GoTo();
+// 			}
+// 		}
+// 		else if(theDiscDrive.discType == "Title") { theDiscDrive.LaunchDisc(); }
+// 		else if(theDiscDrive.discType == "unknown") { LaunchXBMC(); }
+// 		//TellUser("launch unknown", "theMainMenu.GoTo()");
+// 	}
+
+// 	function OnBDown()
+// 	{
+// 		answeredNo = true;
+// 		RestoreDVDPanel();
+// 	}
+// }
+
+// function BringDVDPanelToFront()
+// {
+// 	if( answeredNo == false )
+// 	{
+// 		var c = theInfoPanelInline.children[0];
+// 		if(tempstyle == "MS")
+// 		{
+// 			c.theMainMenuLevel.fade = .7;
+// 			c.theMainMenuLevel.SetAlpha(.1);
+// 			c.Information_panel.SetTranslation(10,-25,90);
+// 			//theMainMenuJoy.isBound = false;
+// 		}
+// 		else
+// 		{
+// 			c.ScreenSaver.fade = .7;
+// 			c.ScreenSaver.SetAlpha(.1);
+// 			c.Information_panel.SetTranslation(-10,-24,20);
+// 			//thebsxcontrols.isBound = false;
+// 		}
+// 		theDVDPanelJoy.isBound = true;
+// 	}
+// }
+
+// function RestoreDVDPanel()
+// {
+// 	var c = theInfoPanelInline.children[0];
+// 	if (answeredNo)
+// 	{
+// 		c.theSoundtrackSongInfoText.text = "";
+// 		c.theSoundtrackAlbumInfoText.text = "";
+// 	}
+// 	c.theSoundtrackSongInfoText.text = songtext;
+// 	c.theSoundtrackAlbumInfoText.text = albumtext;
+
+// 	c.theAbutton.visible = false;
+// 	c.theBbutton.visible = false;
+// 	if(tempstyle == "MS")
+// 	{
+// 		c.theMainMenuLevel.fade = 0.25;
+// 		c.theMainMenuLevel.SetAlpha(1);
+// 		c.Information_panel.SetTranslation(-105,-110,5);
+// 		if(ControlPanelOut)
+// 		{
+// 			if((SoundtrackActive) | (PlaylistActive)) { defplaylistjoy.isBound = true; }
+// 			else { currentControlType.isBound = true; }
+// 		}
+// 		else { theMainMenuJoy.isBound = true; }
+// 	}
+// 	else
+// 	{
+// 		c.ScreenSaver.fade = .5;
+// 		c.ScreenSaver.SetAlpha(1);
+// 		c.Information_panel.SetTranslation(-90,-100,-45);
+// 		if(ControlPanelOut)
+// 		{
+// 			if((SoundtrackActive) | (PlaylistActive)) { defplaylistjoy.isBound = true; }
+// 			else { currentControlType.isBound = true; }
+// 		}
+// 		else { thebsxcontrols.isBound = true; }
+// 	}
+// 	//theDVDPanelJoy.isBound = false;
+// }
+
+// function UpdateDVDIconStatus()
+// {
+// 	RestoreDVDPanel();
+// 	var c = theInfoPanelInline.children[0];
+
+// 	//c.theSoundtrackSongInfoText.text = songtext;
+// 	//c.theSoundtrackAlbumInfoText.text = albumtext;
+
+// 	c.theAbutton.visible = false;
+// 	c.theBbutton.visible = false;
+
+// 	if ( theDiscDrive.discType == "Video" )
+// 	{
+// 		c.DVDStatusIconTexture.url = "dvdvideo.xbx";
+// 		c.theSoundtrackAlbumInfoText.text = "Play movie?";
+// 		c.theSoundtrackSongInfoText.text = "   Yes        No";
+// 		c.theAbutton.visible = true;
+// 		c.theBbutton.visible = true;
+// 		BringDVDPanelToFront();
+// 	}
+// 	else if ( theDiscDrive.discType == "Audio" )
+// 	{
+// 		c.DVDStatusIconTexture.url = "dvdaudio.xbx";
+// 		c.theSoundtrackAlbumInfoText.text = "Play CD?";
+// 		c.theSoundtrackSongInfoText.text = "   Yes        No";
+// 		c.theAbutton.visible = true;
+// 		c.theBbutton.visible = true;
+// 		BringDVDPanelToFront();
+// 	}
+// 	else if ( theDiscDrive.discType == "Title" )
+// 	{
+// 		c.DVDStatusIconTexture.url = "dvdtitle.xbx";
+// 		//c.theSoundtrackAlbumInfoText.text = "Play Game?";
+// 		c.theSoundtrackAlbumInfoText.text = "Launch Title?";
+// 		c.theSoundtrackSongInfoText.text = "   Yes        No";
+// 		c.theAbutton.visible = true;
+// 		c.theBbutton.visible = true;
+// 		BringDVDPanelToFront();
+// 	}
+// 	else if ( theDiscDrive.discType == "unknown" ) 
+// 	{ 
+// 		c.DVDStatusIconTexture.url = "dvdunknown.xbx";
+// 		c.theSoundtrackAlbumInfoText.text = "Launch XMBC?";
+// 		c.theSoundtrackSongInfoText.text = "   Yes        No";
+// 		c.theAbutton.visible = true;
+// 		c.theBbutton.visible = true;
+// 		BringDVDPanelToFront();
+// 	}
+// 	else { c.DVDStatusIconTexture.url = "dvdempty.xbx"; }
+// 	if(answeredNo == true) { RestoreDVDPanel(); }
+// }
+
+/////////////////////////////////////END INFO PANEL FUNCTIONS///////////////////////////

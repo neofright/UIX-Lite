@@ -193,7 +193,11 @@ DEF theBSXMenu Level
 				if(bUseBSXMenu) { BSXOnADown(); }
 				else { REZN8OnADown(); }
 			}
-			else { eval( orbFunction ); }
+			else
+			{
+				HideInfoPanel();
+				eval( orbFunction );
+			}
 		}
 
 		function OnBDown()
@@ -283,7 +287,7 @@ DEF theBSXMenu Level
 
 	function OnActivate()
 	{
-
+		//ShowInfoPanel();
 	}
 }
 
@@ -311,7 +315,7 @@ function GoBackToMainMenu()
 	c.theSettingsTitle.visible = true;
 	c.theSettingsEqualizer.visible = false;
 
-	c.Information_panel.SetTranslation(-90,-100,-45);
+	ShowInfoPanel();
 	if(bAnimatedOrbs) { UpdateTheREZN8Orbs(); }
 	else
 	{
@@ -442,8 +446,7 @@ function EnterHardDriveMenu()
 
 	var c = theBSXMenu.children[0].children[0];
 
-	c.Information_panel.SetTranslation(-250,-110,5);
-
+	HideInfoPanel();
 	for (var i = 0; i < NumberOfMenuItems; i = i + 1) { c.HD_LV2_Text.children[i].children[0].geometry.text = ""; }
 
 	c.HardDrive_01_text2.text = arrMenuNames[0];
@@ -508,7 +511,7 @@ function EnterLevelTwoMenu()
 function ExitHardDriveMenu()
 {
 	var c = theBSXMenu.children[0].children[0];
-	c.Information_panel.SetTranslation(-90,-100,-45);
+	ShowInfoPanel();
 	c.theHardDriveMenu.visible = false;
 	c.theGamesTitle.visible = true;
 	theGamesMenuIn.Play();
@@ -1204,7 +1207,7 @@ function REZN8OnADown()
 	if (InMainLevel)
 	{
 		var c = theBSXMenu.children[0].children[0];
-		c.Information_panel.SetTranslation(-250,-110,5);
+		HideInfoPanel();
 		enterREZN8HDlv1();
 	}
 	else
@@ -1416,8 +1419,7 @@ function EnterTestScreensaver()
 		UpdateListClockHands();
 
 		c.ScreenSaver.fade = .75;
-		c.Information_panel.SetTranslation(-250,-110,5);
-		//ToggleInfoPanel();
+		HideInfoPanel();
 		//c.theMainClock.SetAlpha(1);
 		c.theMainClock.visible = true;
 		//c.theGames_inner.visible = false;
@@ -1449,8 +1451,7 @@ function ExitTestScreensaver()
 	if(InMainLevel)
 	{
 		c.ScreenSaver.fade = .5;
-		c.Information_panel.SetTranslation(-90,-100,-45);
-		//ToggleInfoPanel();
+		ShowInfoPanel();
 		c.ScreenSaver.SetTranslation(-15, -10, -29);
 		c.theMoviesTitle.visible = true;
 		c.theMusicTitle.visible = true;

@@ -87,7 +87,11 @@ function BuildAPList()
 	configList[i] = "Launcher Orb Icon:";
 	configValues[i] = "default-LauncherOrbIcon";
 	configSelect[i] = "toggleLOI()";
-	i = i + 1;	
+	i = i + 1;
+	configList[i] = "Info Panel:";
+	configValues[i] = "default-InfoPanel";
+	configSelect[i] = "toggleTF()";
+	i = i + 1;
 	configList[i] = "BG Mesh:";
 	configValues[i] = "BGMesh-BGMesh";
 	configSelect[i] = "toggleBGMesh()";
