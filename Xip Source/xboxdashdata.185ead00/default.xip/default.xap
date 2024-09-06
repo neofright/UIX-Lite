@@ -461,34 +461,6 @@ function ParseEscapedChars(sText)
 }
 
 ///////////////////////////////////////////////////////////////////
-DEF theBGMesh Layer
-{
-    viewpoint Viewpoint
-    {
-        fieldOfView 1.2
-        position -500 0 0
-    }
-
-    children
-    [
-        DEF theBGMeshTransform Transform
-        {
-            children
-            [
-                DEF theBGMeshInline Inline
-                {
-                    preload true
-                    url "bg_mesh/default.xap"
-                    function onLoad()
-                    {
-                        LoadBGMeshValues();
-                    }
-                }
-            ]
-        }
-    ]
-}
-
 DEF theInfoPanel Layer
 {
 	visible true
@@ -538,6 +510,34 @@ function GoToSkin()
 }
 
 ////////////////////////////////////////////////////////////////////////////
+
+DEF theBGMesh Layer
+{
+    viewpoint Viewpoint
+    {
+        fieldOfView 1.2
+        position -500 0 0
+    }
+
+    children
+    [
+        DEF theBGMeshTransform Transform
+        {
+            children
+            [
+                DEF theBGMeshInline Inline
+                {
+                    preload true
+                    url "bg_mesh/default.xap"
+                    function onLoad()
+                    {
+                        LoadBGMeshValues();
+                    }
+                }
+            ]
+        }
+    ]
+}
 
 DEF theLauncherInline Inline
 {
@@ -3738,9 +3738,9 @@ function LoadBGMeshValues()
 		c.theDNA3.SetTranslation(0, 0, -5000);
 		c.theDNA5.SetTranslation(4000, 0, -5100);
 	}
-	else if (theDNA == "spirals")
+	else if ((theDNA == "spirals") | (theDNA == "corkscrews"))
 	{
-		dnaMesh = theDNA;
+		dnaMesh = theDNA + ".xm";
 	}
 	else if (theDNA == "dna")
 	{
@@ -3751,10 +3751,6 @@ function LoadBGMeshValues()
 	{
 		dnaMesh = "Backing_squigles.xm";
 		dnaBackingMesh = "Backing_squigles_sides.xm";
-	}
-	else if (theDNA == "corkscrews")
-	{
-		dnaMesh = theDNA;
 	}
 
 	c.DNA1_Mesh.url = dnaMesh;

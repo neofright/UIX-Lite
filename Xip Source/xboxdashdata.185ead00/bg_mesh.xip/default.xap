@@ -22,7 +22,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNA1_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                         DEF DNAString1 Transform
                         {
@@ -34,7 +33,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNAString1_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                     ]
                 }
@@ -63,7 +61,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNA3_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                         DEF DNAString3 Transform
                         {
@@ -75,7 +72,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNAString3_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                     ]
                 }
@@ -104,7 +100,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNA5_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                         DEF DNAString5 Transform
                         {
@@ -116,7 +111,6 @@ DEF theDNAwaver Transform
                                     geometry DEF DNAString5_Mesh Mesh { url "" }
                                 }
                             ]
-                            translation 0 0 0
                         }
                     ]
                 }
