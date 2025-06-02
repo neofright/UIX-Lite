@@ -389,7 +389,9 @@ function UpdateBSXHDDMenu()
 		if(TotalMenuItems > i)
 		{
 			var n = LV2Advance + i;
-			c.HD_LV2_Text.children[i].children[0].geometry.text = TempTitleList[n];
+			var strCacheItem = Split(TempTitleList[n],";");
+
+			c.HD_LV2_Text.children[i].children[0].geometry.text = strCacheItem[0];
 		}
 	}
 }
@@ -827,14 +829,20 @@ function LoadRecentTitles()
 	arrRecentNames = new Array;
 	arrRecentPaths = new Array;
 	MaxRecentTitles = 9;
+	var AllTitles = GetAllTitles();
+	var sAllTitles = AllTitles.join("\n");
+
 	for (var i = 0; i < MaxRecentTitles; i = i + 1)
 	{
 		var v = GetSavedValue("RecentTitles", "Title" + i);
 		if(v != "")
 		{
 			var arrTemp = Split(v,"|");
-			arrRecentPaths[i] = arrTemp[0];
-			arrRecentNames[i] = arrTemp[1];
+			if(sAllTitles.indexOf(arrTemp[1]) >= 0)
+			{  //If this title is in the cache then add it to the Recent Titles list.
+				arrRecentPaths[arrRecentPaths.length] = arrTemp[0];
+				arrRecentNames[arrRecentNames.length] = arrTemp[1];
+			} 
 		}
 	}
 }
@@ -842,8 +850,8 @@ function UpdateRecentTitles(x,y)
 {
 	SetSavedValue("RecentTitles", "Title0", x + "|" + y );
 	var index = 1;
-	for (var i = 0; i < arrRecentNames.length; i = i + 1)
-	{
+	for(var i = 0; i < arrRecentNames.length; i = i + 1)
+	{ 
 		if(arrRecentNames[i] != y)
 		{
 			SetSavedValue("RecentTitles", "Title" + index, arrRecentPaths[i] + "|" + arrRecentNames[i] );
@@ -851,35 +859,47 @@ function UpdateRecentTitles(x,y)
 			if(index == MaxRecentTitles) return;
 		}
 	}
+	while(index < MaxRecentTitles)
+	{   //Ensure the rest of the list is clear
+		SetSavedValue("RecentTitles", "Title" + index, "");
+		index = index + 1;
+	}
 }
 function LaunchItem(x,y)
 {
 	var RelativePath = Split(x,";");
-	var FolderName = y;
-
-	for(var i = 0; i < PartitionLocations.length; i = i + 1)
-	{
-		for(var ix = 0; ix < RelativePath.length; ix = ix + 1)
-		{
-			launchPath = PartitionLocations[i] + RelativePath[ix] + "\\" + FolderName;
-			launchXbe = "default.xbe";
-			if(i > 1 & bHDDInitialized == false)
-			{
-				sLocation = x;
-				sFolder = y;
-				bLaunchItem = true;
-				bHDDInitialize = true;
-				return;
-			}
-			else if(theConfig.NtFileExists(launchPath + "\\" + launchXbe))
-			{
-				//theLauncher.children[0].children[0].theWholeThing.alpha = 0;
-				UpdateRecentTitles(x,y);
-				theLaunchGameLevel.GoTo();
-				return;
-			}
-		}
+	var TitleLocation = Split(y,";");
+	var FolderName = TitleLocation[0];
+	var sDrive = DriveLocations[StringToNumber(TitleLocation[1])];
+	if((sDrive != "Y:\\" & sDrive != "C:\\" & sDrive != "R:\\") & bHDDInitialized == false) 
+	{  //The title is not on C or E so set the background before continuing.
+		sLocation = x;
+		sFolder = y;
+		bLaunchItem = true;
+		bHDDInitialize = true;
+		return;
 	}
+	
+	launchPath = PartitionLocations[StringToNumber(TitleLocation[1])] + RelativePath[StringToNumber(TitleLocation[2])] + "\\" + FolderName;
+	launchXbe = "default.xbe";
+	
+	if(theConfig.NtFileExists(launchPath + "\\" + launchXbe)) 
+	{  //We,ve found the title so fade the Launcher, update the RecentTitles , and goto theLaunchGameLevel
+		//theLauncher.children[0].children[0].theWholeThing.visible = false;
+		UpdateRecentTitles(x,y);
+		theLaunchGameLevel.GoTo();
+		return;
+	}
+	
+	//If we've made it here the title was not found. 
+	//This could be due to a stale cache. So, let's refresh the cache and then reload the list.
+	if(theLauncher.children[0].children[0].theWholeThing.visible == false)
+	{
+		theBackground.isBound = true;
+		theLauncher.children[0].children[0].theWholeThing.visible = true;
+		theLauncher.shell.alpha = 1;
+	}
+	RefreshTitleList();
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
@@ -1061,26 +1081,26 @@ function UpdateTrackList()
 		}
 		else
 		{
-			var strName0;
-			strName0 = TempTitleList[n];
+			var strCacheItem = Split(TempTitleList[n],";");
+			var strName0 = strCacheItem[0];
 			var strAltName = GetSavedValue("AltTitleName",strName0);
 			if (strAltName != "") strName0 = strAltName;
-			if(strName0.length() > 36) strName0 = strName0.substr(0,36) + "...";
+			if(strName0.length() > 42) strName0 = strName0.substr(0,40) + "...";
 
 			c.TrackNames.children[i].children[0].geometry.text = strName0;
 
 			if (n == nPlayCursor0)
 			{
 				c.TrackNames.children[i].SetScale(0.15, 0.15, 0.15);
-				c.TrackNames.children[i].children[0].appearance.name = "CellEgg/Partsz";
-				var Icon = IconFile.GetValue(TempTitleList[nPlayCursor0]);
+				c.TrackNames.children[i].children[0].appearance.name = "GameHilite";
+				var Icon = IconFile.GetValue(strCacheItem[0]);
 				if(Icon == "Unknown" | Icon == "") Icon = DefaultIcon; else  Icon = Icon.toLowerCase() + ".xbx";
 				c.theIconCube.children[0].appearance.texture.url = Icon;
 			}
 			else
 			{
 				c.TrackNames.children[i].SetScale(0.13, 0.13, 0.13);
-				c.TrackNames.children[i].children[0].appearance.name = "NavType";
+				c.TrackNames.children[i].children[0].appearance.name = "Material #1335";
 			}
 		}
 	}
