@@ -73,7 +73,6 @@ function BuildAPList()
 	configValues[i] = "default-UseMainMenuAttract";
 	configSelect[i] = "toggleTF()";
 	i = i + 1;
-	configList[i] = "Always Use tHc ScreenSaver:";
 	configList[i] = "Auto-Launch Media:";
 	configValues[i] = "default-AutoLaunchMedia";
 	configSelect[i] = "toggleTF()";
@@ -93,6 +92,7 @@ function BuildAPList()
 	configList[i] = "Info Panel:";
 	configValues[i] = "default-InfoPanel";
 	configSelect[i] = "toggleTF()";
+	i = i + 1;
 	configList[i] = "Use List Underlay:";
 	configValues[i] = "default-UseListUnderlay";
 	configSelect[i] = "toggleTF()";
@@ -120,7 +120,6 @@ function BuildAPList()
 	configList[i] = "Mesh 3 Rpm:";
 	configValues[i] = "BGMesh-BGMesh3 rpm";
 	configSelect[i] = "configKeyb()";
-	i = i + 1;
 
 	clearText();
 	updateText();
@@ -212,6 +211,7 @@ function buildMMList()
 
 function buildHDList()
 {
+	var i = 0;
 	configList = new Array;
 	configValues = new Array;
 	configSelect = new Array;
@@ -305,7 +305,7 @@ function buildHDList()
 	configList[0] = "Max Launcher Menu Items:";
 	configValues[0] = "LauncherMenu-MaxLauncherMenuItems";
 	configSelect[0] = "configKeyb()";
-	
+
 	for(var i = 0; i < nMaxLauncherMenuItems; i = i + 1)
 	{
 		configList[configList.length] = "Item "+ (i + 1) + " Title:";
@@ -315,7 +315,7 @@ function buildHDList()
 		configValues[configValues.length] = "LauncherMenu-Path" + i;
 		configSelect[configSelect.length] = "configKeyb()";
 	}
-	
+
 	clearText();
 	updateText();
 }
@@ -409,7 +409,7 @@ function buildBSXMMList()
 	configList[i] = "Orb 5 Function:";
 	configValues[i] = "MainMenuOrbs-Orb 5 Function";
 	configSelect[i] = "configKeyB()";
-	i = i + 1;
+
 	clearText();
 	updateText();
 }
