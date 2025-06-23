@@ -81,6 +81,11 @@ DEF theBSXMenu Level
 				nPlayVisible0 = 9;
 				m_submenucount = 5;
 				//end flip down area//
+				var tempmins = new Date;
+				firsthour = tempmins.getHours() * 3600;
+				firstmins = tempmins.getMinutes() * 60;
+				firstsecs = tempmins.getSeconds();
+				
 				NumberOfMenuItems = 6;
 				bInTestScreenSaverView = false;
 
@@ -247,9 +252,18 @@ DEF theBSXMenu Level
 			{
 				if(bAnimatedOrbs)
 				{
-					MenuItem = MenuItem + 1;
-					theMainMenuBackward.Play();
-					UpdateTheREZN8Orbs();
+					var d = new Date;
+					secondhour = d.getHours() * 3600;
+					secondmins = d.getMinutes() * 60;
+					secondsecs = d.getSeconds();
+					if (((secondhour + secondmins + secondsecs) - (firsthour + firstmins + firstsecs)) > .8)
+					{
+						firstmins = d.getMinutes() * 60;
+						firstsecs = d.getSeconds();
+						MenuItem = MenuItem + 1;
+						theMainMenuBackward.Play();
+						UpdateTheREZN8Orbs();
+					}
 				}
 				else
 				{
@@ -268,10 +282,19 @@ DEF theBSXMenu Level
 			{
 				if(bAnimatedOrbs)
 				{
-					MenuItem = MenuItem - 1;
-					if((MenuItem == -1) | (MenuItem == 0)) { MenuItem = 5; }
-					theMainMenuForward.Play();
-					UpdateTheREZN8Orbs();
+					var d = new Date;
+					secondhour = d.getHours() * 3600;
+					secondmins = d.getMinutes() * 60;
+					secondsecs = d.getSeconds();
+					if (((secondhour + secondmins + secondsecs) - (firsthour + firstmins + firstsecs)) > .8)
+					{
+						firstmins = d.getMinutes() * 60;
+						firstsecs = d.getSeconds();
+						MenuItem = MenuItem - 1;
+						if((MenuItem == -1) | (MenuItem == 0)) { MenuItem = 5; }
+						theMainMenuForward.Play();
+						UpdateTheREZN8Orbs();
+					}
 				}
 				else
 				{
@@ -903,6 +926,13 @@ function LaunchItem(x,y)
 }
 /////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////////////
+
+var secondhour;
+var secondmins;
+var secondsecs;
+var firsthour;
+var firstmins;
+var firstsecs;
 
 /////////////////////REZN8 FLIP DOWN MENU FUNCTIONS BOBMCGEE/////////////////////////
 ////////vars added for flip downs...BobMcGee..move to sep. xap later/////////////////
