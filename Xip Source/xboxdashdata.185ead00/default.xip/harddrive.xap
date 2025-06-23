@@ -251,6 +251,7 @@ function EnterLauncherMenu()
 	CurrentAltViewpoint = theLauncherAlternateViewpoint;
 	LoadRecentTitles();
 	LoadRootContents();
+	if (LauncherQL != "") { LauncherQuickLaunch2(); }
 }
 
 function LoadMenuItems()
@@ -761,9 +762,18 @@ DEF theLauncher Level
 			}
 			else
 			{
-				CurrentViewpoint = LauncherViewpoint;
-				ShowLauncherMenu();
-				thePlayerPanelOut.Play();
+				if (LauncherQL != "")
+				{
+					LauncherQL = "";
+					theGamesMenuOut.Play();
+					theMainMenu.GoBackTo();
+				}
+				else
+				{
+					CurrentViewpoint = LauncherViewpoint;
+					ShowLauncherMenu();
+					thePlayerPanelOut.Play();
+				}
 			}
 		}
 		function OnRightDown() { RightTrigger = true; if(bInBrowser == false) OnMoveRight(); }
@@ -1028,4 +1038,24 @@ function PathEllipsis(x,MaxCharacters)
 		c = sPath.length();
 	}
 	return a.join("\\") + "\\...\\" + b.join("\\");
+}
+
+function LauncherQuickLaunch2()
+{
+	for (var i = 0; i < nMaxLauncherMenuItems; i = i + 1)
+	{
+		var v = Translate(GetSavedValue("LauncherMenu", "Title" + i));
+		if(v == LauncherQL) 
+		{
+			arrMenuNames[TotalSections] = v;
+			arrMenuPaths[TotalSections] = GetSavedValue("LauncherMenu", "Path" + i);
+
+			nCurLauncherItem0 = i;
+			CurFillDir = arrMenuPaths[nCurLauncherItem0];
+			subTitle0 = arrMenuNames[nCurLauncherItem0];
+			TempTitleList = GetTitleList(arrMenuNames[nCurLauncherItem0]);
+			thePlayerPanelIn.Play();
+			StartTitleList();
+		}
+	}
 }

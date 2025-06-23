@@ -3322,6 +3322,7 @@ function UnblockMemoryUnitEnumeration()
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 ////// Added Functions for HDD Menu
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
 function FillMenuList(x) // search Y:\, C:\, N:\ and O:\ for a relative path's contents to use to fill a menu
 {
 	var RelativePath = Split(x,";");
@@ -3434,6 +3435,14 @@ function QuickLaunch(x)
 	{
 		ExecuteFile(a);
 	}
+}
+
+var LauncherQL;
+// LauncherQL = "";
+function LauncherQuickLaunch(x)
+{
+	LauncherQL = x;
+	GoToLauncher();
 }
 
 function ExecuteFile(sPath)
