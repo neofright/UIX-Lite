@@ -840,18 +840,21 @@ DEF theLauncher Level
 			}
 			else
 			{
-				var a = (TempTitleList.length - 1);
-				if (nPlayCursor0 <= 0)
+				if (TempTitleList.length > 0)
 				{
-					nPlayCursor0 = a;
-					if(a > nPlayVisible0) nPlayScroll0 = a - nPlayVisible0;
+						var a = (TempTitleList.length - 1);
+						if (nPlayCursor0 <= 0)
+						{
+							nPlayCursor0 = a;
+							if(a > nPlayVisible0) nPlayScroll0 = a - nPlayVisible0;
+						}
+						else
+						{
+							nPlayCursor0 = nPlayCursor0 - 1;
+						}
+						PlaySoundMenuChange();
+						UpdateTrackList();
 				}
-				else
-				{
-					nPlayCursor0 = nPlayCursor0 - 1;
-				}
-				PlaySoundMenuChange();
-				UpdateTrackList();
 			}
 		}
 
@@ -869,17 +872,20 @@ DEF theLauncher Level
 			}
 			else
 			{
-				var a = (TempTitleList.length - 1);
-				if (nPlayCursor0 == a)
+				if (TempTitleList.length > 0)
 				{
-					nPlayCursor0 = 0;
+					var a = (TempTitleList.length - 1);
+					if (nPlayCursor0 == a)
+					{
+						nPlayCursor0 = 0;
+					}
+					else
+					{
+						nPlayCursor0 = nPlayCursor0 + 1;
+					}
+					PlaySoundMenuChange();
+					UpdateTrackList();
 				}
-				else
-				{
-					nPlayCursor0 = nPlayCursor0 + 1;
-				}
-				PlaySoundMenuChange();
-				UpdateTrackList();
 			}
 		}
 	}

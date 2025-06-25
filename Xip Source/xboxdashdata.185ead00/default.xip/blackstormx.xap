@@ -1335,15 +1335,20 @@ function REZN8HDDMoveUp()
 	}
 	else
 	{
-		var a = (TempTitleList.length - 1);
-		if (nPlayCursor0 <= 0)
+		if (TempTitleList.length > 0)
 		{
-			nPlayCursor0 = a;
-			if(a > nPlayVisible0) nPlayScroll0 = a - nPlayVisible0;
-		}
-		else
-		{
-			nPlayCursor0 = nPlayCursor0 - 1;
+			var a = (TempTitleList.length - 1);
+			if (nPlayCursor0 <= 0)
+			{
+				nPlayCursor0 = a;
+				if(a > nPlayVisible0) nPlayScroll0 = a - nPlayVisible0;
+			}
+			else
+			{
+				nPlayCursor0 = nPlayCursor0 - 1;
+			}
+			PlaySoundMenuChange();
+			UpdateTrackList();
 		}
 	}
 }
@@ -1361,16 +1366,19 @@ function REZN8HDDMoveDown()
 	}
 	else
 	{
-		var a = (TempTitleList.length - 1);
-		if (nPlayCursor0 < 0) { nPlayCursor0 = 0; }
-
-		if (nPlayCursor0 == a) { nPlayCursor0 = 0; }
-		else
+		if (TempTitleList.length > 0)
 		{
-			nPlayCursor0 = nPlayCursor0 + 1;
+			var a = (TempTitleList.length - 1);
+			if (nPlayCursor0 < 0) { nPlayCursor0 = 0; }
+
+			if (nPlayCursor0 == a) { nPlayCursor0 = 0; }
+			else
+			{
+				nPlayCursor0 = nPlayCursor0 + 1;
+			}
+			PlaySoundMenuChange();
+			UpdateTrackList();
 		}
-		PlaySoundMenuChange();
-		UpdateTrackList();
 	}
 }
 ///END FLIP DOWN FUNCTIONS//MOVE ENTIRE CHUNK INTO ITS OWN XAP
